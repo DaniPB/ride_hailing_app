@@ -1,0 +1,23 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: bash -c 'ruby app.rb'
+    volumes:
+      - .:/ride_hailing_app
+    ports:
+      - "4567:4567"
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true
+
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/data
+
+volumes:
+  postgres_data:
+    driver: local
+

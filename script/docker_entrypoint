@@ -1,0 +1,8 @@
+#!/bin/bash --login
+
+gem install bundler
+rt BUNDLE_PATH=./gems
+bundle check || bundle install
+
+#entrypoint for docker
+bundle exec "$@"
