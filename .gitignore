@@ -1,0 +1,5 @@
+# Ignore gems folder
+/gems
+
+# Ignore tmp
+/tmp/*
