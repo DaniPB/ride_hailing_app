@@ -15,12 +15,6 @@ services:
   db:
     image: postgres
     volumes:
-      - postgres_data:/data
+      - ./tmp/db:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: "db"
-      POSTGRES_PASSWORD: "password"
-
-volumes:
-  postgres_data:
-    driver: local
-
+      - POSTGRES_PASSWORD=postgres

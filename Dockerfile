@@ -1,6 +1,6 @@
 FROM ruby:2.7.1
 
-RUN apt-get update -qq && apt-get install -y build-essential
+RUN apt-get update -qq && apt-get install -y postgresql-client
 
 ENV APP_HOME /ride_hailing_app
 RUN mkdir $APP_HOME
