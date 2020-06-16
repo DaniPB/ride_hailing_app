@@ -13,6 +13,7 @@ GEM
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
     concurrent-ruby (1.1.6)
+    geocoder (1.6.3)
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
     minitest (5.14.1)
@@ -42,10 +43,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
+  geocoder
   pg
   rake
   sinatra
-  sinatra-activerecord (~> 2.0, >= 2.0.9)
+  sinatra-activerecord
 
 BUNDLED WITH
    2.1.4

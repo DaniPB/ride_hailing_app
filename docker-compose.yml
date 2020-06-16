@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    build: .
+    image: danielapb/ride_hailing_app:1
     command: bash -c 'ruby app.rb'
     volumes:
       - .:/ride_hailing_app

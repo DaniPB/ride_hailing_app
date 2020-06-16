@@ -11,8 +11,6 @@ ADD Gemfile.lock* $APP_HOME/
 
 RUN apt-get update
 
-RUN echo hola mundo
-
 ADD . $APP_HOME
 
 EXPOSE 8080
