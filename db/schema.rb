@@ -10,51 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_035909) do
+ActiveRecord::Schema.define(version: 0) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "plpgsql"
-
-  create_table "drivers", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "email", null: false
-    t.string "phone", null: false
-    t.string "status", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "payment_methods", force: :cascade do |t|
-    t.string "type", null: false
-    t.string "token", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "riders", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "email", null: false
-    t.string "phone", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "rides", force: :cascade do |t|
-    t.hstore "from", null: false
-    t.hstore "to", null: false
-    t.float "price", default: 0.0, null: false
-    t.datetime "starts_at", null: false
-    t.datetime "ends_at", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
 
 end

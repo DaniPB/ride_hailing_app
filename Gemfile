@@ -10,3 +10,10 @@ gem 'sinatra-activerecord'
 gem 'rake'
 
 gem 'geocoder'
+
+group :development, :test do
+  gem 'rack-test'
+  gem 'rspec'
+  gem 'faker'
+  gem 'factory_bot'
+end
