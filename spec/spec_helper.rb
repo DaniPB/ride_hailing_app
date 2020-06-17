@@ -5,6 +5,9 @@ require 'rack/test'
 require 'rspec'
 require 'factory_bot'
 require 'faker'
+require 'byebug'
+require 'vcr'
+require 'webmock'
 require 'shoulda-matchers'
 
 ENV['RACK_ENV'] = 'test'
@@ -57,4 +60,9 @@ Shoulda::Matchers.configure do |config|
     with.library :active_record
     with.library :active_model
   end
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "fixtures/vcr_cassettes"
+  config.hook_into :webmock
 end

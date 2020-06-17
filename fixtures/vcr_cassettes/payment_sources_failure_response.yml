@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.wompi.co/v1/payment_sources
+    body:
+      encoding: UTF-8
+      string: '{"customer_email":"soraya_waelchi@hoeger.com","type":"CARD","token":"tok_test_3873_65E5F468Da8E7C383cfEb07795861bD9","acceptance_token":"invalid_token"}'
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - Bearer prv_test_ylWYep6viAs0DUAYxmdKaO1lSbL0Y6yv
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 422
+      message: ''
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '134'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 17 Jun 2020 16:36:53 GMT
+      X-Amzn-Requestid:
+      - a247cfaf-d637-4bc9-8f34-ba4e8dd9e517
+      X-Amzn-Remapped-Content-Length:
+      - '134'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      Via:
+      - 1.1 vegur, 1.1 1019c7748e9bd9371b8cbc3777f0a40e.cloudfront.net (CloudFront)
+      X-Amz-Apigw-Id:
+      - OR_51EiZIAMFnwA=
+      Vary:
+      - Origin
+      X-Amzn-Remapped-Server:
+      - Cowboy
+      X-Amzn-Remapped-Date:
+      - Wed, 17 Jun 2020 16:36:52 GMT
+      X-Cache:
+      - Error from cloudfront
+      X-Amz-Cf-Pop:
+      - IAD79-C2
+      X-Amz-Cf-Id:
+      - ZxnynZjgXzaOvB_6zcQ35Y1Crtln7lSzV10NbheMeEsmRpWpU128Mg==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJlcnJvciI6eyJ0eXBlIjoiSU5QVVRfVkFMSURBVElPTl9FUlJPUiIsIm1lc3NhZ2VzIjp7ImFjY2VwdGFuY2VfdG9rZW4iOlsiRWwgdG9rZW4gZGUgYWNlcHRhY2nDs24gZXN0w6EgZW4gdW4gZm9ybWF0byBpbmNvcnJlY3RvIl19fX0=
+  recorded_at: Wed, 17 Jun 2020 16:36:53 GMT
+recorded_with: VCR 6.0.0

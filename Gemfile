@@ -9,7 +9,19 @@ gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'rake'
 
+# Dry Gems
+gem 'dry-auto_inject'
+gem 'dry-validation'
+gem 'dry-monads'
+
+# Geo Gem
 gem 'geocoder'
+
+# HTTP Requests Gem
+gem 'faraday'
+
+# Environment variables
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'rack-test'
@@ -17,4 +29,7 @@ group :development, :test do
   gem 'faker'
   gem 'factory_bot'
   gem 'shoulda-matchers', '~> 4.0'
+  gem 'byebug'
+  gem 'vcr'
+  gem 'webmock'
 end
