@@ -16,4 +16,5 @@ group :development, :test do
   gem 'rspec'
   gem 'faker'
   gem 'factory_bot'
+  gem 'shoulda-matchers', '~> 4.0'
 end

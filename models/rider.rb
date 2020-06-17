@@ -7,7 +7,7 @@ class Rider < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
 
   has_many :trips
-  has_one :payment_method
+  belongs_to :payment_method
 
   VALID_EMAIL = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 end

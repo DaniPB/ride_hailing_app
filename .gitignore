@@ -3,3 +3,6 @@
 
 # Ignore tmp
 /tmp/*
+
+# Ignore database config
+/config/database.yml
