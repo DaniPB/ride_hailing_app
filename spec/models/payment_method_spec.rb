@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 RSpec.describe PaymentMethod, type: :model do
+  before :each do
+    PaymentMethod.destroy_all
+  end
 
   describe "associations" do
     it { should belong_to(:rider).class_name('Rider') }

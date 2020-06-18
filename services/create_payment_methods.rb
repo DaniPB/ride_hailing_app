@@ -54,11 +54,7 @@ class CreatePaymentMethods
   end
 
   def build_request(input)
-    conn = Faraday.new(url: ENV['WAMPI_URL']) do |f|
-      f.adapter :net_http
-    end
-
-    conn.post('payment_sources') do |req|
+    basic_connection.post('payment_sources') do |req|
       req.body = build_payload(input)
       req.headers['Authorization'] = "Bearer #{ENV['WAMPI_PRV_KEY']}"
     end

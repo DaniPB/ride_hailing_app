@@ -54,8 +54,6 @@ RSpec.describe CreatePaymentMethods do
             expect(response).to be_failure
             expect(response.failure).to eq(expected_response)
 
-            payment_method = PaymentMethod.count
-
             expect(PaymentMethod.count).to eq(0)
           end
         end
@@ -224,6 +222,36 @@ RSpec.describe CreatePaymentMethods do
         expect(response).to be_failure
         expect(response.failure).to eq(expected_response)
       end
+    end
+  end
+
+  describe "#parse_response" do
+    context "A json is received" do
+      it "Should return a parsed response" do
+        input = "{\"hola\":\"mundo\",\"hello\":\"world\"}"
+        expected_response = { "hola" => "mundo", "hello" => "world" }
+
+        response = subject.parse_response(input)
+
+        expect(response).to eq(expected_response)
+      end
+
+      it "Should return a parsed response" do
+        input = "{}"
+
+        response = subject.parse_response(input)
+
+        expect(response).to eq({})
+      end
+    end
+  end
+
+  describe "#basic_connection" do
+    it "Should return a faraday connection" do
+      response = subject.basic_connection
+
+      expect(response.adapter).to eq(Faraday::Adapter::NetHttp)
+      expect(response.url_prefix.host).to eq("sandbox.wompi.co")
     end
   end
 end

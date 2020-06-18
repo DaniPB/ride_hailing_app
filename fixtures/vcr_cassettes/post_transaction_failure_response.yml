@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.wompi.co/v1/transactions
+    body:
+      encoding: UTF-8
+      string: '{"acceptance_token":"eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6MSwicGVybWFsaW5rIjoiaHR0cHM6Ly93b21waS5jby93cC1jb250ZW50L3VwbG9hZHMvMjAxOS8wOS9URVJNSU5PUy1ZLUNPTkRJQ0lPTkVTLURFLVVTTy1VU1VBUklPUy1XT01QSS5wZGYiLCJmaWxlX2hhc2giOiIzZGNkMGM5OGU3NGFhYjk3OTdjZmY3ODExNzMxZjc3YiIsImppdCI6IjE1OTI0NTg2MjMtNjU2MjEiLCJleHAiOjE1OTI0NjIyMjN9.3fSx1EWJeC0NgcN72ypCUwSFkAJfnevmenxKydfJ4SQ","amount_in_cents":1000000,"currency":"COP","customer_email":"benita@blanda.com","reference":"210865637222","payment_source_id":"1142","payment_method":{"type":"CARD","installments":24,"token":"6H9sLmZoBhLjPk"}}'
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - Bearer prv_test_ylWYep6viAs0DUAYxmdKaO1lSbL0Y6yv
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 422
+      message: ''
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '103'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 18 Jun 2020 05:57:19 GMT
+      X-Amzn-Requestid:
+      - ffcce1dd-0e9d-43e1-9a69-24368ce40518
+      X-Amzn-Remapped-Content-Length:
+      - '103'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      Via:
+      - 1.1 vegur, 1.1 189ad47cf7c6f3a8b745cb053efec004.cloudfront.net (CloudFront)
+      X-Amz-Apigw-Id:
+      - OT1J4GD_oAMFtfw=
+      Vary:
+      - Origin
+      X-Amzn-Remapped-Server:
+      - Cowboy
+      X-Amzn-Remapped-Date:
+      - Thu, 18 Jun 2020 05:57:18 GMT
+      X-Cache:
+      - Error from cloudfront
+      X-Amz-Cf-Pop:
+      - MIA3-C1
+      X-Amz-Cf-Id:
+      - hok7sR6QZKT7e_Rpw2NLuM4yTWoL-zPOmm59WHXGixJhsQL9ugdGbQ==
+    body:
+      encoding: UTF-8
+      string: '{"error":{"type":"INPUT_VALIDATION_ERROR","messages":{"reference":["La
+        referencia ya ha sido usada"]}}}'
+  recorded_at: Thu, 18 Jun 2020 05:57:19 GMT
+recorded_with: VCR 6.0.0

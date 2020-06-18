@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 RSpec.describe Driver, type: :model do
+  before :each do
+    Driver.destroy_all
+  end
 
   describe "associations" do
     it { should have_many(:trips).class_name('Trip') }
