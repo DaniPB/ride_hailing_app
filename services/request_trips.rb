@@ -45,7 +45,7 @@ class RequestTrips
 
   def create_source(input)
     default_time = Time.now
-    data = input.slice(:from, :to, :driver, :rider).merge(starts_at: default_time, ends_at: default_time)
+    data = input.slice(:from, :to, :driver, :rider).merge(starts_at: default_time, ends_at: default_time, status: 'onway')
     source = Trip.new(data)
 
     if source.save

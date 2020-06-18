@@ -23,6 +23,9 @@ gem 'faraday'
 # Environment variables
 gem 'dotenv-rails'
 
+# Times
+gem 'time_difference'
+
 group :development, :test do
   gem 'rack-test'
   gem 'rspec'

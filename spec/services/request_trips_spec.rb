@@ -35,6 +35,7 @@ RSpec.describe RequestTrips do
 
           expect(trip.rider).to eq(rider)
           expect(trip.driver).to eq(driver2)
+        expect(trip.status).to eq('onway')
           expect(trip.from).to eq({"latitude"=>"4.6973867", "longitude"=>"-74.0493784"})
           expect(trip.to).to eq({"latitude"=>"4.654368", "longitude"=>"-74.0584483"})
           expect(trip.starts_at.to_date).to eq(Date.today)

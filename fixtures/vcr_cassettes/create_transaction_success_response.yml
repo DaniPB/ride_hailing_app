@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.wompi.co/v1/transactions
+    body:
+      encoding: UTF-8
+      string: '{"acceptance_token":"eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6MSwicGVybWFsaW5rIjoiaHR0cHM6Ly93b21waS5jby93cC1jb250ZW50L3VwbG9hZHMvMjAxOS8wOS9URVJNSU5PUy1ZLUNPTkRJQ0lPTkVTLURFLVVTTy1VU1VBUklPUy1XT01QSS5wZGYiLCJmaWxlX2hhc2giOiIzZGNkMGM5OGU3NGFhYjk3OTdjZmY3ODExNzMxZjc3YiIsImppdCI6IjE1OTI0NTg2MjMtNjU2MjEiLCJleHAiOjE1OTI0NjIyMjN9.3fSx1EWJeC0NgcN72ypCUwSFkAJfnevmenxKydfJ4SQ","amount_in_cents":350000,"currency":"COP","customer_email":"jonas@white.info","reference":"1","payment_source_id":"1142","payment_method":{"type":"CARD","installments":24,"token":"DbSnAj0AcYvYd"}}'
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - Bearer prv_test_ylWYep6viAs0DUAYxmdKaO1lSbL0Y6yv
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '544'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 18 Jun 2020 21:48:38 GMT
+      X-Amzn-Requestid:
+      - a3b8d84a-6d19-4e56-b137-519014f2135e
+      X-Amzn-Remapped-Content-Length:
+      - '544'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      Via:
+      - 1.1 vegur, 1.1 2e51d21cbcece0c8168928f0f01f11e4.cloudfront.net (CloudFront)
+      X-Amz-Apigw-Id:
+      - OWAgaGWEoAMFTZA=
+      Vary:
+      - Origin
+      X-Amzn-Remapped-Server:
+      - Cowboy
+      X-Amzn-Remapped-Date:
+      - Thu, 18 Jun 2020 21:48:38 GMT
+      X-Cache:
+      - Miss from cloudfront
+      X-Amz-Cf-Pop:
+      - MIA3-C1
+      X-Amz-Cf-Id:
+      - R_4P99GQnYl8vJUovem-LZGKvBE1V5B5Q20DvVBqSMOMj4T5xOp_Bg==
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"13873-1592516918-41562","created_at":"2020-06-18T21:48:38.404Z","amount_in_cents":350000,"reference":"1","customer_email":"jonas@white.info","currency":"COP","payment_method_type":"CARD","payment_method":{"type":"CARD","extra":{"bin":"424242","name":"VISA-4242","brand":"VISA","exp_year":"29","exp_month":"12","last_four":"4242"},"installments":24},"status":"PENDING","status_message":null,"shipping_address":null,"redirect_url":null,"payment_source_id":1142,"payment_link_id":null,"customer_data":null,"bill_id":null},"meta":{}}'
+  recorded_at: Thu, 18 Jun 2020 21:48:38 GMT
+recorded_with: VCR 6.0.0
