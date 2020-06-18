@@ -16,6 +16,12 @@ RSpec.describe Trip, type: :model do
     expect(trip).to be_valid
   end
 
+  it "is not valid with wrong status type" do
+    trip = build(:trip, status: 'aja')
+
+    expect(trip).to_not be_valid
+  end
+
   it "is not valid without some fields" do
     expect(subject).to_not be_valid
 

@@ -1,4 +1,5 @@
 require 'spec_helper'
+require './services/create_transactions.rb'
 
 RSpec.describe CreateTransactions do
   let(:payment_method)   { create(:payment_method, source_id: "1142") }

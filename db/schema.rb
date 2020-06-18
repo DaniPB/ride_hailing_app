@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_223908) do
+ActiveRecord::Schema.define(version: 2020_06_18_061652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2020_06_17_223908) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "rider_id"
     t.bigint "driver_id"
+    t.string "status", default: "unstarted", null: false
     t.index ["driver_id"], name: "index_trips_on_driver_id"
     t.index ["rider_id"], name: "index_trips_on_rider_id"
   end

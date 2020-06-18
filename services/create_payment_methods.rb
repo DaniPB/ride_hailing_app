@@ -1,4 +1,5 @@
 require './services/validators/create_payment_method_contract.rb'
+require './services/get_rider.rb'
 require './lib/requests_handler.rb'
 require 'dry/monads'
 require 'dry/monads/result'
@@ -32,13 +33,7 @@ class CreatePaymentMethods
   end
 
   def get_rider(input)
-    rider = Rider.find_by(email: input[:email])
-
-    if rider.present?
-      Success input.merge(rider: rider)
-    else
-      Failure(message: "The rider #{input[:email]} doesn't exist", location: self.class)
-    end
+    GetRider.new.call(input)
   end
 
   def send_request(input)

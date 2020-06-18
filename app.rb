@@ -14,8 +14,9 @@ set :database_file, 'config/database.yml'
 set :current_dir, Dir.pwd
 
 Dir["#{settings.current_dir}/models/*.rb"].each { |file| require file }
-Dir["#{settings.current_dir}/services/*.rb"].each { |file| require file }
-Dir["#{settings.current_dir}/lib/*.rb"].each { |file| require file }
+
+require './services/create_payment_methods.rb'
+require './services/request_rides.rb'
 
 class App < Sinatra::Base
   get "/" do

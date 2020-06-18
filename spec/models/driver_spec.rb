@@ -15,6 +15,12 @@ RSpec.describe Driver, type: :model do
     expect(driver).to be_valid
   end
 
+  it "is not valid with wrong status type" do
+    trip = build(:driver, status: 'aja')
+
+    expect(trip).to_not be_valid
+  end
+
   it "is not valid without some fields" do
     expect(subject).to_not be_valid
 

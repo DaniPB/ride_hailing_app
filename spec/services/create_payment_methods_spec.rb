@@ -1,4 +1,5 @@
 require 'spec_helper'
+require './services/create_payment_methods.rb'
 
 RSpec.describe CreatePaymentMethods do
   let(:rider)               { create(:rider) }
@@ -65,7 +66,7 @@ RSpec.describe CreatePaymentMethods do
 
           expected_response = {
             message: "The rider invalid@email.com doesn't exist",
-            location: CreatePaymentMethods
+            location: GetRider
           }
 
           expect(response).to be_failure
