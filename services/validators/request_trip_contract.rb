@@ -8,7 +8,7 @@ module Types
   Coordinates = Types::Hash.schema(longitude: Types::Float, latitude: Types::Float)
 end
 
-class RequestRideContract < ApplicationContract
+class RequestTripContract < ApplicationContract
   params do
     required(:email).filled(:string)
     required(:from).filled(Types::Coordinates)

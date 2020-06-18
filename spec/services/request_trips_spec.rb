@@ -1,7 +1,7 @@
 require 'spec_helper'
-require './services/request_rides.rb'
+require './services/request_trips.rb'
 
-RSpec.describe RequestRides do
+RSpec.describe RequestTrips do
   let(:rider)    { create(:rider) }
   let!(:driver)  { create(:driver) }
   let(:response) { subject.(input) }
@@ -64,7 +64,7 @@ RSpec.describe RequestRides do
         it "should return a failure response and not create a Trip" do
           expected_response = {
             message: "There are not available drivers",
-            location: RequestRides
+            location: RequestTrips
           }
 
           expect(response).to be_failure
@@ -83,7 +83,7 @@ RSpec.describe RequestRides do
 
         expected_response = {
           message: { :email=>["must be filled"] },
-          location: RequestRides
+          location: RequestTrips
         }
 
         expect(response).to be_failure
@@ -95,7 +95,7 @@ RSpec.describe RequestRides do
 
         expected_response = {
           message: { :email=>["must be a string"] },
-          location: RequestRides
+          location: RequestTrips
         }
 
         expect(response).to be_failure
@@ -107,7 +107,7 @@ RSpec.describe RequestRides do
 
         expected_response = {
           message: { :email=>["not a valid email format"] },
-          location: RequestRides
+          location: RequestTrips
         }
 
         expect(response).to be_failure
@@ -119,7 +119,7 @@ RSpec.describe RequestRides do
 
         expected_response = {
           message: { :from=>["must be filled"] },
-          location: RequestRides
+          location: RequestTrips
         }
 
         expect(response).to be_failure
@@ -131,7 +131,7 @@ RSpec.describe RequestRides do
 
         expected_response = {
           message: { :from=>["must be a hash"] },
-          location: RequestRides
+          location: RequestTrips
         }
 
         expect(response).to be_failure
@@ -143,7 +143,7 @@ RSpec.describe RequestRides do
 
         expected_response = {
           message: { :to=>["must be a hash"] },
-          location: RequestRides
+          location: RequestTrips
         }
 
         expect(response).to be_failure
@@ -155,7 +155,7 @@ RSpec.describe RequestRides do
 
         expected_response = {
           message: { :to=>["must be filled"] },
-          location: RequestRides
+          location: RequestTrips
         }
 
         expect(response).to be_failure
@@ -167,7 +167,7 @@ RSpec.describe RequestRides do
 
         expected_response = {
           message: {:from=>{:latitude=>["must be a float"]}},
-          location: RequestRides
+          location: RequestTrips
         }
 
         expect(response).to be_failure
@@ -179,7 +179,7 @@ RSpec.describe RequestRides do
 
         expected_response = {
           message: {:from=>{:longitude=>["must be a float"]}},
-          location: RequestRides
+          location: RequestTrips
         }
 
         expect(response).to be_failure

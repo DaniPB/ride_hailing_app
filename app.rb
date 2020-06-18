@@ -16,7 +16,7 @@ set :current_dir, Dir.pwd
 Dir["#{settings.current_dir}/models/*.rb"].each { |file| require file }
 
 require './services/create_payment_methods.rb'
-require './services/request_rides.rb'
+require './services/request_trips.rb'
 
 class App < Sinatra::Base
   get "/" do

@@ -1,8 +1,8 @@
-require './services/validators/request_ride_contract.rb'
+require './services/validators/request_trip_contract.rb'
 require 'dry/monads'
 require 'dry/monads/result'
 
-class RequestRides
+class RequestTrips
   include Dry::Monads[:result]
 
   def call(input)
@@ -20,7 +20,7 @@ class RequestRides
   private
 
   def validate(input)
-    result = RequestRideContract.new.call(input)
+    result = RequestTripContract.new.call(input)
 
     if result.success?
       Success input.deep_symbolize_keys
