@@ -7,4 +7,7 @@
 # Ignore database config
 /config/database.yml
 
+# Ignore environment variables
+.env
+
 .byebug_history

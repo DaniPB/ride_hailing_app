@@ -1,10 +1,11 @@
+require './services/validators/create_payment_method_contract.rb'
+require './lib/requests_handler.rb'
 require 'dry/monads'
 require 'dry/monads/result'
 
-Dir["#{settings.current_dir}/services/validators/*.rb"].each { |file| require file }
-
 class CreatePaymentMethods
   include Dry::Monads[:result]
+  include RequestsHandler
 
   def call(input)
     validate(input).bind { |input|
@@ -41,21 +42,25 @@ class CreatePaymentMethods
   end
 
   def send_request(input)
-    token = "Bearer #{ENV['WAMPI_PRV_KEY']}"
+    response = build_request(input)
 
+    if response.status == 200
+      source_id = parse_response(response.body)["data"]["id"]
+
+      Success input.merge(source_id: source_id)
+    else
+      Failure(message: parse_response(response.body), location: self.class)
+    end
+  end
+
+  def build_request(input)
     conn = Faraday.new(url: ENV['WAMPI_URL']) do |f|
       f.adapter :net_http
     end
 
-    response = conn.post('payment_sources') do |req|
+    conn.post('payment_sources') do |req|
       req.body = build_payload(input)
-      req.headers['Authorization'] = token
-    end
-
-    if response.status == 200
-      Success input
-    else
-      Failure(message: JSON.parse(response.body), location: self.class)
+      req.headers['Authorization'] = "Bearer #{ENV['WAMPI_PRV_KEY']}"
     end
   end
 
@@ -65,7 +70,7 @@ class CreatePaymentMethods
   end
 
   def create_source(input)
-    source = PaymentMethod.new(input.slice(:method_type, :token, :rider))
+    source = PaymentMethod.new(input.slice(:method_type, :token, :rider, :source_id))
 
     if source.save
       Success input.merge(message: "PaymentMethod created successfully")

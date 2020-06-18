@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe CreatePaymentMethods do
+RSpec.describe CreateTransaction do
   let(:rider)               { create(:rider) }
   let(:token)               { "tok_test_3873_65E5F468Da8E7C383cfEb07795861bD9" }
   let(:acceptance_token)    { "eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6MSwicGVybWFsaW5rIjoiaHR0cHM6Ly93b21waS5jby93cC1jb250ZW50L3VwbG9hZHMvMjAxOS8wOS9URVJNSU5PUy1ZLUNPTkRJQ0lPTkVTLURFLVVTTy1VU1VBUklPUy1XT01QSS5wZGYiLCJmaWxlX2hhc2giOiIzZGNkMGM5OGU3NGFhYjk3OTdjZmY3ODExNzMxZjc3YiIsImppdCI6IjE1OTI0MTAxOTMtODc2NjMiLCJleHAiOjE1OTI0MTM3OTN9.V8im0mknxsvXsp-s0JojRkgib14UjZba_l46Q4VYZWM" }
@@ -36,7 +36,6 @@ RSpec.describe CreatePaymentMethods do
             expect(payment_method.method_type).to eq("CARD")
             expect(payment_method.token).to eq(input[:token])
             expect(payment_method.rider).to eq(rider)
-            expect(payment_method.source_id).to eq("1142")
           end
         end
       end

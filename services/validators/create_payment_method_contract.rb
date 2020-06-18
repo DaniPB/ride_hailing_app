@@ -1,4 +1,4 @@
-require "#{settings.current_dir}/services/validators/application_contract.rb"
+require './services/validators/application_contract.rb'
 
 class CreatePaymentMethodContract < ApplicationContract
   params do

@@ -17,7 +17,8 @@ RSpec.describe PaymentMethod, type: :model do
     expect(subject).to_not be_valid
 
     expected_errors = {
-      :token=>["can't be blank"]
+      :token=>["can't be blank"],
+      :source_id=>["can't be blank"]
     }
 
     expect(subject.errors.messages).to eq(expected_errors)
