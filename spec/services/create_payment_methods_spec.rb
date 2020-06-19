@@ -72,8 +72,6 @@ RSpec.describe CreatePaymentMethods do
           expect(response).to be_failure
           expect(response.failure).to eq(expected_response)
 
-          payment_method = PaymentMethod.count
-
           expect(PaymentMethod.count).to eq(0)
         end
       end

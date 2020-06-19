@@ -2,7 +2,7 @@ version: '3'
 services:
   web:
     image: danielapb/ride_hailing_app:1
-    command: bash -c 'ruby app.rb'
+    command: ruby app.rb
     volumes:
       - .:/ride_hailing_app
     ports:

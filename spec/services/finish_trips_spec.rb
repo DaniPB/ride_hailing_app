@@ -78,7 +78,7 @@ RSpec.describe FinishTrips do
         end
       end
 
-      context "There driver is not closer to the destination" do
+      context "The driver is not closer to the destination" do
         it "should return a failure response" do
           input[:current_location] = { latitude: 4.6864841, longitude: -74.0465669 }
 
