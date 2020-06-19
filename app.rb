@@ -4,6 +4,7 @@ require 'sinatra'
 require 'rake'
 require 'json'
 require 'faraday'
+require 'puma'
 require 'dotenv/load'
 require 'sinatra/activerecord'
 require 'sinatra/activerecord/rake'
@@ -11,6 +12,8 @@ require 'sinatra/activerecord/rake'
 require './services/create_payment_methods.rb'
 require './services/request_trips.rb'
 require './services/finish_trips.rb'
+
+configure { set :server, :puma }
 
 class App < Sinatra::Base
   set :bind, '0.0.0.0'

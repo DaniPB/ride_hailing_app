@@ -8,6 +8,7 @@ gem 'pg'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'rake'
+gem 'puma'
 
 # Dry Gems
 gem 'dry-auto_inject'
