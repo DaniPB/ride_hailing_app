@@ -4,6 +4,9 @@
 # Ignore tmp
 /tmp/*
 
+# Ignore log
+/log/*
+
 # Ignore database config
 /config/database.yml
 
