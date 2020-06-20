@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_18_061652) do
+ActiveRecord::Schema.define(version: 2020_06_16_222012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 2020_06_18_061652) do
   create_table "payment_methods", force: :cascade do |t|
     t.string "method_type", default: "CARD", null: false
     t.string "token", null: false
+    t.string "source_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "rider_id"
-    t.string "source_id", null: false
     t.index ["rider_id"], name: "index_payment_methods_on_rider_id"
   end
 
@@ -48,11 +48,11 @@ ActiveRecord::Schema.define(version: 2020_06_18_061652) do
   end
 
   create_table "transactions", force: :cascade do |t|
+    t.string "pay_reference", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "payment_method_id"
     t.bigint "trip_id"
-    t.string "pay_reference", null: false
     t.index ["payment_method_id"], name: "index_transactions_on_payment_method_id"
     t.index ["trip_id"], name: "index_transactions_on_trip_id"
   end
@@ -63,11 +63,11 @@ ActiveRecord::Schema.define(version: 2020_06_18_061652) do
     t.float "price", default: 0.0, null: false
     t.datetime "starts_at", null: false
     t.datetime "ends_at", null: false
+    t.string "status", default: "unstarted", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "rider_id"
     t.bigint "driver_id"
-    t.string "status", default: "unstarted", null: false
     t.index ["driver_id"], name: "index_trips_on_driver_id"
     t.index ["rider_id"], name: "index_trips_on_rider_id"
   end

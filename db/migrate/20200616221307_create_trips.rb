@@ -7,6 +7,7 @@ class CreateTrips < ActiveRecord::Migration[6.0]
       t.float :price, null: false, default: 0.0
       t.datetime :starts_at, null: false
       t.datetime :ends_at, null: false
+      t.string :status, null: false, default: 'unstarted'
       t.timestamps null: false
 
       t.belongs_to :rider
