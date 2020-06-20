@@ -5,6 +5,7 @@ threads threads_count, threads_count
 #
 port        ENV.fetch("PORT") { 8080 }
 
+puts "*" * 100
 # Specifies the `environment` that Puma will run in.
 #
 environment ENV.fetch("RACK_ENV") { "development" }

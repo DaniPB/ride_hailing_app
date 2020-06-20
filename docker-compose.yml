@@ -11,6 +11,9 @@ services:
       - db
     stdin_open: true
     tty: true
+    environment:
+      - PORT=8080
+      - RACK_ENV=development
 
   db:
     image: postgres
