@@ -28,6 +28,7 @@ class App < Sinatra::Base
   Dir["#{settings.current_dir}/models/*.rb"].each { |file| require file }
 
   configure { set :server, :puma }
+  puts "*" * 100
 
   # TODO: Strong params
   # TODO: Code errors
