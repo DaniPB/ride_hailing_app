@@ -33,6 +33,7 @@ class App < Sinatra::Base
 
   get '/' do
     "Hello World"
+    erb :index
   end
 
   post "/payment_method" do

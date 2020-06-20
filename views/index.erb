@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Ride Hailing API</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+  </head>
+  <body>
+    <h1>Para usar el api:</h1>
+    <h2>POST /payment_method: Create a payment method for a rider</h2>
+    <h3>Parameters in body</h3>
+    <p><strong>email: string</strong> </p>
+    <p><strong>method_type: string</strong> "accepted is CARD"</p>
+    <p><strong>token: string</strong> "Is the token of the card"</p>
+    <p><strong>acceptance_token: string</strong></p>
+    <p><strong>accepted_token: string</strong></p>
+    <h2>POST /trip: Request a Ride</h2>
+    <h3>Parameters in body</h3>
+    <p><strong>email: string</strong> </p>
+    <p><strong>from: hash</strong> "Is a Hash with coordinates e.g. { latitude: 4.6973867, longitude: -74.0493784 }"</p>
+    <p><strong>to: hash</strong> "Is a Hash with coordinates e.g. { latitude: 4.6973867, longitude: -74.0493784 }"</p>
+    <h2>PUT /trip: Finish a Ride</h2>
+    <h3>Parameters in body</h3>
+    <p><strong>id: integer</strong>"Trip id"</p>
+    <p><strong>email: string</strong> </p>
+    <p><strong>current_location: hash</strong> "Is a Hash with coordinates e.g. { latitude: 4.6973867, longitude: -74.0493784 }"</p>
+    <p><strong>acceptance_token: string</strong></p>
+  </body>
+</html>
