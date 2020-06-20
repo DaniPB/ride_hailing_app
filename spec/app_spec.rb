@@ -26,7 +26,7 @@ describe App, type: :request do
     context "given a valid input" do
       it "creates a payment method" do
         VCR.use_cassette("payment_sources_success_response") do
-          response = post "/payment_method", body: params.to_json
+          response = post "/payment_method", params.to_json, as: :json
 
           expected_response = {
             "message" => "PaymentMethod created successfully"
@@ -49,7 +49,7 @@ describe App, type: :request do
       it "creates a payment method" do
         params[:email] = "invalid@email.com"
 
-        response = post "/payment_method", body: params.to_json
+        response = post "/payment_method", params.to_json, as: :json
 
         expected_response = "The rider invalid@email.com doesn't exist"
 
@@ -72,17 +72,19 @@ describe App, type: :request do
 
     context "given a valid input" do
       it "creates a trip and assign a driver" do
-        response = post "/trip", body: params.to_json
-
-        expected_response = {
-          "message" => "Trip created successfully"
-        }
+        response = post "/trip", params.to_json, as: :json
 
         body = JSON.parse(response.body)
 
-        expect(body).to eq(expected_response)
-
         trip = Trip.last
+
+        expected_response = {
+          "message" => "Trip created successfully",
+          "trip_id" => trip.id
+        }
+
+
+        expect(body).to eq(expected_response)
 
         expect(trip.rider).to eq(rider)
         expect(trip.driver).to eq(driver)
@@ -98,7 +100,7 @@ describe App, type: :request do
       it "creates a payment method" do
         params[:email] = "invalid@email.com"
 
-        response = post "/trip", body: params.to_json
+        response = post "/trip", params.to_json, as: :json
 
         expected_response = "The rider invalid@email.com doesn't exist"
 
@@ -136,7 +138,7 @@ describe App, type: :request do
 
           params[:id] = trip.id
 
-          response = put "/trip", body: params.to_json
+          response = put "/trip", params.to_json, as: :json
 
           expected_response = {
             "message" => "Trip finished successfully",
@@ -173,7 +175,7 @@ describe App, type: :request do
         trip = Trip.last
         params[:id] = trip.id
 
-        response = put "/trip", body: params.to_json
+        response = put "/trip", params.to_json, as: :json
 
         expected_response = "You should be closer to the destination to finish this trip"
 

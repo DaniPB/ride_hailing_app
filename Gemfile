@@ -1,7 +1,7 @@
 # Gemfile
 
 source 'https://rubygems.org'
-ruby '2.6.6'
+ruby '2.7.1'
 
 gem 'sinatra'
 
@@ -35,7 +35,6 @@ group :development, :test do
   gem 'faker'
   gem 'factory_bot'
   gem 'shoulda-matchers', '~> 4.0'
-  gem 'byebug'
   gem 'vcr'
   gem 'webmock'
 end

@@ -12,5 +12,3 @@
 
 # Ignore environment variables
 .env
-
-.byebug_history

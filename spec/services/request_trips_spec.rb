@@ -24,14 +24,16 @@ RSpec.describe RequestTrips do
         it "should return a success response and create a Trip" do
           driver2 = create(:driver, status: 'available')
 
-          expected_response = {
-            message: "Trip created successfully"
-          }
-
           expect(response).to be_success
-          expect(response.success).to eq(expected_response)
 
           trip = Trip.last
+
+          expected_response = {
+            message: "Trip created successfully",
+            trip_id: trip.id
+          }
+
+          expect(response.success).to eq(expected_response)
 
           expect(trip.rider).to eq(rider)
           expect(trip.driver).to eq(driver2)

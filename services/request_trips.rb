@@ -49,13 +49,13 @@ class RequestTrips
     source = Trip.new(data)
 
     if source.save
-      Success input.merge(message: "Trip created successfully")
+      Success input.merge(message: "Trip created successfully", trip_id: source.id)
     else
       Failure(message: source.errors.messages, location: self.class)
     end
   end
 
   def build_response(input)
-    Success input.slice(:message)
+    Success input.slice(:message, :trip_id)
   end
 end
