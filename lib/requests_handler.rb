@@ -5,7 +5,7 @@ module RequestsHandler
   end
 
   def basic_connection
-    Faraday.new(url: ENV['WAMPI_URL']) do |f|
+    Faraday.new(url: ENV['WOMPI_URL']) do |f|
       f.adapter :net_http
     end
   end

@@ -37,7 +37,7 @@ class CreateTransactions
   def build_request(input)
     basic_connection.post('transactions') do |req|
       req.body = build_payload(input)
-      req.headers['Authorization'] = "Bearer #{ENV['WAMPI_PRV_KEY']}"
+      req.headers['Authorization'] = "Bearer #{ENV['WOMPI_PRV_KEY']}"
     end
   end
 
