@@ -1,7 +1,7 @@
 rider_1 = Rider.create(first_name: "Daniela", last_name: "Patiño", phone: "3022032041", email: "danielaswift29@gmail.com")
 rider_2 = Rider.create(first_name: "Camilo", last_name: "Sabaneta", phone: "3012131041", email: "camilosabaneta@gmail.com")
-rider_3 = Rider.create(first_name: "Amanda", last_name: "Amacio", phone: "3221032041", email: "danielaswift29@gmail.com")
-rider_4 = Rider.create(first_name: "Hyun", last_name: "Bin", phone: "3012131041", email: "hyunbin@gmail.com")
+rider_3 = Rider.create(first_name: "Amanda", last_name: "Amacio", phone: "3221032041", email: "amandaamacio@gmail.com")
+rider_4 = Rider.create(first_name: "Hyun", last_name: "Bin", phone: "3112141041", email: "hyunbin@gmail.com")
 rider_5 = Rider.create(first_name: "Henry", last_name: "Cavill", phone: "3222133041", email: "henrycavill@gmail.com")
 rider_6 = Rider.create(first_name: "Laura", last_name: "Ramirez", phone: "3125555541", email: "lauraramirez@gmail.com")
 
